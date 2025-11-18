@@ -2,9 +2,8 @@ name: Auto Run Dify
 
 on:
   schedule:
-    # 日本時間の朝9時に実行 (UTC 0:00)
-    - cron: "9 0 * * 3"
-  workflow_dispatch: # 手動実行ボタン用
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   trigger_dify:
@@ -12,9 +11,10 @@ jobs:
     steps:
       - name: Call Dify API
         run: |
-          # DifyのAPIを叩く処理 (curlを使用)
-          curl -X POST "${{ secrets.DIFY_BASE_URL }}/workflows/run" \
-          --header "Authorization: Bearer ${{ secrets.DIFY_API_KEY }}" \
+          # URLをAPI専用のものに書き換えました
+          # キーの周りの【】を削除しました
+          curl -X POST "https://api.dify.ai/v1/workflows/run" \
+          --header "Authorization: Bearer app-oD1a3qNjUFl57hRRR8gMZRx0" \
           --header "Content-Type: application/json" \
           --data-raw '{
               "inputs": {},

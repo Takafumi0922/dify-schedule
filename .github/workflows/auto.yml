@@ -13,7 +13,7 @@ jobs:
         run: |
           # 画像にあったURL + /workflows/run を組み合わせた正しいURL
           curl -X POST "https://api.dify.ai/v1/workflows/run" \
-          --header "Authorization: Bearer app-oD1a3qNjUFl57hRRR8gMZRx0" \
+          --header "Authorization: Bearer app-oD1a3qNjUFl57hRRR8gMZRxQ" \
           --header "Content-Type: application/json" \
           --data-raw '{
               "inputs": {},
